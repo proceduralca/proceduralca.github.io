@@ -1,1 +1,10 @@
-
+body{
+    background: #000;
+    margin: 0;
+    padding: 0;
+    font: monospace;
+}
+canvas{
+    padding: 0;
+    margin: 0;
+}
