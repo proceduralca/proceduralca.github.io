@@ -41,9 +41,9 @@ function main(){
 
     window.requestAnimationFrame( main );
 
-    IcoA.rotateZ( 0.01 );
+    Ico.rotateZ( 0.01 );
     
-    camera.lookAt( IcoA.position );
+    camera.lookAt( Ico.position );
 
     renderer.render( scene, camera );
 
