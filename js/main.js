@@ -1,5 +1,5 @@
 window.onload = init;
-window.resize = resize;
+window.onresize = resize;
 
 const renderer  = new THREE.WebGLRenderer({
 
@@ -57,7 +57,7 @@ function init(){
 
     scene.add( sky );
 
-    camera.position.y += 250;
+    camera.position.y += 300;
     camera.up.copy( new THREE.Vector3( 0, 0, 1 ));
     camera.fov = 70;
     camera.far = 10000;
@@ -149,7 +149,7 @@ function Icosahedron(){
 
 function Sky(){
 
-    const buffer = new THREE.IcosahedronGeometry( 200,4 );
+    const buffer = new THREE.IcosahedronGeometry( 290,4 );
     const geometry = new THREE.Geometry();
     const material = new THREE.PointsMaterial( { color: 0xffffff, size: 1, sizeAttenuation: false } );
 
