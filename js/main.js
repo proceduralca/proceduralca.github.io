@@ -419,11 +419,18 @@ function IGMODE(){
 
 	let w = ( window.innerWidth < window.innerHeight ) ? window.innerWidth : window.innerHeight;
 
-		ui.resize( w, w );
-		renderer.setSize( w, w );
-		camera.aspect = w / w;
-		camera.updateProjectionMatrix();
+	document.body.requestFullscreen()
 
+	ui.resize( w, w );
+	renderer.setSize( w, w );
+	camera.aspect = w / w;
+	camera.updateProjectionMatrix();
+
+	let n = window.innerHeight/2 - w/2;
+	let top = n + 'px';
+
+	renderer.domElement.style.top = top;
+	ui.renderer.style.top = top;
 	
 
 }
