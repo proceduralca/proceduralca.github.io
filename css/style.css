@@ -1,11 +1,15 @@
 body{
-    background: #000;
+    background: #333333;
     margin: 0;
     padding: 0;
+    height: 100vh;
     font: monospace;
-    overflow: hidden;
 }
 canvas{
     padding: 0;
     margin: 0;
+}
+a{
+    position: absolute;
+    display: block;
 }
