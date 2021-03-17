@@ -225,7 +225,7 @@ function init(){
     // scene.add( fill );
     // scene.add( wires );
 
-    scene.add( sky );
+    // scene.add( sky );
 
     camera.position.y += 320;
     camera.up.copy( new THREE.Vector3( 0, 0, 1 ));
@@ -354,13 +354,13 @@ function Sky(){
     const geometry = new THREE.Geometry();
     const material = new THREE.PointsMaterial( { color: 0xffffff, size: 1, sizeAttenuation: false } );
 
-	while( geometry.vertices.length < 1000){
-
-		let i = Math.floor( Math.random() * buffer.vertices.length-1 )
-
-			geometry.vertices.push( buffer.vertices[i].clone() );
-
-		};
+	// while( geometry.vertices.length < 1000){
+  //
+	// 	let i = Math.floor( Math.random() * buffer.vertices.length-1 )
+  //
+	// 		geometry.vertices.push( buffer.vertices[i].clone() );
+  //
+	// 	};
 
     const points = new THREE.Points( geometry, material );
 
