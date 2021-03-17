@@ -38,7 +38,7 @@ let state = [];
 		},
 
 		title: function(){
-			
+
 			ui.color = '#fff';
 
 			ui.set( 16, 24 );
@@ -57,9 +57,9 @@ let state = [];
 		},
 
 		intro: function (){
-		
+
 			ui.print(
-			
+
 			'PROCEDURAL — ( CAD )',
 			"-0",
 			"+1",
@@ -136,7 +136,7 @@ let state = [];
 
 			ui.print(
 
-			'Development',
+			'',
 			'4',
 			'1.0-3',
 			64,
@@ -146,7 +146,7 @@ let state = [];
 
 			ui.print(
 
-			'Preview',
+			'contact@procedural.ca',
 			'4',
 			'+1',
 			64,
@@ -202,14 +202,14 @@ function init(){
     fill	= new THREE.Mesh( master.clone(), material.clone() );
 
 			fill.material.wireframe = false;
-			fill.material.color.set(0x000000);
+			fill.material.color.set(0xffffff);
 			fill.material.opacity = 0.9 ;
 			fill.material.transparent = true;
 			fill.material.blendMode = THREE.AdditiveBlending;
 
     wires	= new THREE.Mesh( nodes.clone(), material.clone() );
 
-			wires.material.color.set(0xff5d8a);
+			wires.material.color.set(0xffffff);
 			wires.material.opacity = 0.5 ;
 			wires.material.transparent = true;
 			wires.material.blendMode = THREE.AdditiveBlending;
@@ -221,9 +221,9 @@ function init(){
 
 	sky.material.fog = false;
 
-    scene.add( ico );
-    scene.add( fill );
-    scene.add( wires );
+    // scene.add( ico );
+    // scene.add( fill );
+    // scene.add( wires );
 
     scene.add( sky );
 
@@ -272,52 +272,52 @@ function main(){
     camera.position.applyAxisAngle( up, 0.0025 )
 
     camera.lookAt( ico.position );
-
-	switch( mode ){
-
-		case( 0 ):
-
-		if( timer > time ){
-
-			seed = Math.random() * 16^16;
-			timer = 0;
-			time = 300
-
-			let x = Math.random() - 0.5;
-			let y = Math.random() - 0.5;
-			let z = Math.random() - 0.5;
-
-			let n = normals[1]
-
-			targets[0].geometry.copy( master );
-			targets[0].geometry.copy( applyNoise( targets[0].geometry, normals[0] ) );
-
-			targets[1].geometry.copy( nodes );
-			targets[1].geometry.copy( applyNoise( targets[1].geometry, normals[1] ) );
-
-		};
-
-		break;
-
-		case( 1 ):
-
-		seed += 0.5
-        targets[0].geometry.copy( master );
-        targets[0].geometry.copy( applyNoise( targets[0].geometry, normals[0] ));
-
-//         targets[1].geometry.copy( nodes );
-//         targets[1].geometry.copy( applyNoise( targets[1].geometry, normals[1] ));
-
-		break;
-
-	};
-        
-	for( let i = 0; i < targets[0].geometry.vertices.length; i++ ){
-
-		ico.geometry.vertices[i].lerp( targets[0].geometry.vertices[i], 0.1 );
-		fill.geometry.vertices[i].lerp( targets[0].geometry.vertices[i].clone().multiplyScalar(0.9), 0.1 );
-
-	};
+//
+// 	switch( mode ){
+//
+// 		case( 0 ):
+//
+// 		if( timer > time ){
+//
+// 			seed = Math.random() * 16^16;
+// 			timer = 0;
+// 			time = 300
+//
+// 			let x = Math.random() - 0.5;
+// 			let y = Math.random() - 0.5;
+// 			let z = Math.random() - 0.5;
+//
+// 			let n = normals[1]
+//
+// 			targets[0].geometry.copy( master );
+// 			targets[0].geometry.copy( applyNoise( targets[0].geometry, normals[0] ) );
+//
+// 			targets[1].geometry.copy( nodes );
+// 			targets[1].geometry.copy( applyNoise( targets[1].geometry, normals[1] ) );
+//
+// 		};
+//
+// 		break;
+//
+// 		case( 1 ):
+//
+// 		seed += 0.5
+//         targets[0].geometry.copy( master );
+//         targets[0].geometry.copy( applyNoise( targets[0].geometry, normals[0] ));
+//
+// //         targets[1].geometry.copy( nodes );
+// //         targets[1].geometry.copy( applyNoise( targets[1].geometry, normals[1] ));
+//
+// 		break;
+//
+// 	};
+//
+// 	for( let i = 0; i < targets[0].geometry.vertices.length; i++ ){
+//
+// 		ico.geometry.vertices[i].lerp( targets[0].geometry.vertices[i], 0.1 );
+// 		fill.geometry.vertices[i].lerp( targets[0].geometry.vertices[i].clone().multiplyScalar(0.9), 0.1 );
+//
+// 	};
 
 	for( let i = 0; i < targets[1].geometry.vertices.length; i++ ){
 
@@ -350,19 +350,17 @@ function Icosahedron(){
 
 function Sky(){
 
-    const buffer = new THREE.IcosahedronGeometry( 290,4 );
+    const buffer = new THREE.IcosahedronGeometry( 1,20 );
     const geometry = new THREE.Geometry();
     const material = new THREE.PointsMaterial( { color: 0xffffff, size: 1, sizeAttenuation: false } );
 
-	for( let i in buffer.vertices ){
+	while( geometry.vertices.length < 1000){
 
-		if( Math.random() < 0.4 ){
+		let i = Math.floor( Math.random() * buffer.vertices.length-1 )
 
 			geometry.vertices.push( buffer.vertices[i].clone() );
 
 		};
-
-	};
 
     const points = new THREE.Points( geometry, material );
 
@@ -431,6 +429,6 @@ function IGMODE(){
 
 	renderer.domElement.style.top = top;
 	ui.renderer.style.top = top;
-	
+
 
 }

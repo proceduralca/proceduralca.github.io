@@ -1,12 +1,14 @@
 body{
-    
+
     background: #000000;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     height: 100vh;
     image-rendering: pixelated;
     overflow: hidden;
-
+    font-family: monospace;
+    color: #fff;
+    font-size: 16px;
 }
 canvas{
 
@@ -22,70 +24,34 @@ canvas{
     opacity: 0;
 
 }
-#ginko{
 
-    position: fixed;
-    right: 0;
-    top: 0px;
-    height: 64px;
-    width: 120px;
-    display: block;
-    z-index: 1000;
-    
+p {
+
+  margin: 0;
+  padding: 10px 0;
+
 }
+
 a{
-    position: fixed;
-}
-#mode_0{
 
-    position: fixed;
-    left: 32px;
-    bottom: 25px;
-    height: 40px;
-    width: 40px;
-    display: block;
-    z-index: 1000;
-
-}
-#mode_1{
-
-    position: fixed;
-    left: 80px;
-    bottom: 25px;
-    height: 40px;
-    width: 40px;
-    display: block;
-    z-index: 1000;
-    background-color: '#fff'
-
-}
-#mode_2{
-
-    position: fixed;
-    left: 150px;
-    bottom: 25px;
-    height: 40px;
-    width: 40px;
-    display: block;
-    z-index: 1000;
-    background-color: '#fff'
-
-}
-#ig{
-
-    position: fixed;
-    bottom: 5px;
-    right: 0px;
-    height: 80px;
-    width: 80px;
-    display: block;z-index: 1000;
+  display: block;
+  letter-spacing: : 2px;
 
 }
 
-color-picker{
+a {
 
-    color: #ff5d8a;
-    color: #98ff8c;
+  padding: 10px 0;
 
+}
+a::hover{
+
+  color: #fff;
+
+}
+
+a, a:visited, a::after, a::before{
+
+  color: #fff;
 
 }
